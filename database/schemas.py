@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import date
 
 class UserBase(BaseModel):
     name: str
@@ -15,12 +16,15 @@ class User(UserBase):
 
 class ExperienceBase(BaseModel):
     title: str
-    start_date: str
-    end_date: str
+    start_date: date
+    end_date: date
     description: str
 
 class ExperienceCreate(ExperienceBase):
-    pass
+    title: str
+    start_date: date
+    end_date: date
+    description: str
 
 class Experience(ExperienceBase):
     id: int
