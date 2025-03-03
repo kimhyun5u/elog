@@ -2,11 +2,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+from config import settings
+
 # MySQL 연결 URL 설정
-DATABASE_URL = "mysql+pymysql://root:1234@localhost:3306/elog"
 
 # SQLAlchemy 엔진 생성
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(settings.db_url, echo=True)
 
 # 세션 생성기 설정
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
